@@ -8,7 +8,6 @@
 
 (function() {
   "use strict";
-
   /**
    * Apply .scrolled class to the body as the page is scrolled down
    */
@@ -45,12 +44,14 @@
     });
 
   });
+  
 
   /**
    * Toggle mobile nav dropdowns
    */
 
   /**
+   **
    * Preloader
    */
   const preloader = document.querySelector('#preloader');
@@ -59,6 +60,24 @@
       preloader.remove();
     });
   }
+  document.addEventListener("DOMContentLoaded", () => {
+    const preloader = document.querySelector("#preloader1");
+    const content = document.getElementById('content'); // Capture the content element
+
+    if (preloader) {
+        window.addEventListener("load", () => {
+            preloader.classList.add("preloaded");
+            setTimeout(() => {
+                preloader.remove();
+                content.style.display = "block"; // Display the main content
+            }, 3000); // Adjusted time for smoother transition
+        });
+    }
+});
+
+
+
+
 
   /**
    * Scroll top button
@@ -135,23 +154,20 @@
 const circles = document.querySelectorAll(".circle");
 
 const colors = [
-  "#000000", // Black
-  "#330000",
-  "#660000",
-  "#990000",
-  "#CC0033",
-  "#FF0066",
-  "#FF3399",
-  "#FF66CC",
-  "#FF99CC",
-  "#FFBBDD",
-  "#FFCCEE",
-  "#FFDDFF",
-  "#FFEEFF",
-  "#FFEEFF",
-  "#FFEEFF",
-  "#FFC0CB"  // Pink
+  "rgba(5, 150, 82, 0)",       // Transparent
+  "rgba(5, 150, 82, 0.1)",
+  "rgba(5, 150, 82, 0.2)",
+  "rgba(5, 150, 82, 0.3)",
+  "rgba(5, 150, 82, 0.4)",
+  "rgba(5, 150, 82, 0.5)",
+  "rgba(5, 150, 82, 0.6)",
+  "rgba(5, 150, 82, 0.7)",
+  "rgba(5, 150, 82, 0.8)",
+  "rgba(5, 150, 82, 0.9)",
+  "rgba(5, 150, 82, 1)"        // Green #059652
 ];
+
+
 
 
 
@@ -257,3 +273,24 @@ document.addEventListener('mousemove', function(e) {
   cursor.style.left = e.pageX + 'px';
   cursor.style.top = e.pageY + 'px';
 });
+var map = L.map('map').setView([8.9475, 125.5406], 13); // Coordinates for Butuan City, Philippines
+          
+// Add a tile layer
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+}).addTo(map);
+
+// Create a custom icon
+var customIcon = L.divIcon({
+    className: 'custom-div-icon',
+    html: "<i class='fas fa-map-marker-alt'></i>",
+    iconSize: [30, 42],
+    iconAnchor: [15, 42]
+});
+
+// Add the custom icon to the map
+L.marker([8.9475, 125.5406], { icon: customIcon }).addTo(map);
+ /**
+
+   */
+ 
