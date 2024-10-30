@@ -1616,7 +1616,9 @@ section,
 }
 .photo-frame1 {
   width: 100%;
-  height: 400px;
+  max-width: 400px; /* Ensures the frame doesn't exceed 400px in width */
+  height: 100%; /* Adjusts height to auto for better responsiveness */
+  aspect-ratio: 1; /* Maintains the circular aspect ratio */
   border: 10px solid #000000; /* Black border */
   border-radius: 50%;
   overflow: hidden;
@@ -1625,28 +1627,13 @@ section,
   align-items: center;
   position: relative; /* Needed for the ripple effect */
   animation: ripple 2s infinite; /* Adding ripple animation */
+  margin: auto; /* Centers the frame horizontally */
 }
 
 .photo-frame1 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-/* Media query for larger screens */
-@media (min-width: 768px) {
-  .photo-frame1 {
-    max-width: 400px;
-    height: 100%;
-  }
-}
-
-/* Media query for smaller screens */
-@media (max-width: 480px) {
-  .photo-frame1 {
-    max-width: 200px;
-    height: auto;
-  }
 }
 
 .transparent-text-background {
@@ -1673,6 +1660,7 @@ section,
     box-shadow: 0 0 10px rgba(247, 244, 244, 0.6), 0 0 20px rgba(247, 244, 244, 0.6);
   }
 }
+
 
 .photo-frame {
   width: 100%;
