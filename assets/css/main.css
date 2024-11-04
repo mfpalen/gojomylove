@@ -19,7 +19,7 @@
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root {
-  background: url(/assets/img/gojo/m24.jpg) no-repeat center center fixed;
+  background: url(/assets/img/gojo/icegif-3544.gif) no-repeat center center fixed;
   background-size: cover; /* Ensures the image covers the entire background */
   --default-color: white; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #ffffff; /* Color for headings, subheadings and title throughout the website */
